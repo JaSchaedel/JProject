@@ -3,43 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
     <title>Artwork Contact Form</title>
 </head>
 <body>
     <h1>Artwork Contact Form</h1>
-    <form>
+    <form id="artwork-contact-form">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="Enter your name..."><br>
+        <input type="text" id="name" name="name" value="Enter your name..." required>
         <!-- name field -->
-        <br>
+    
 
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="Enter your email..."><br>
+        <input type="email" id="email" name="email" value="Enter your email..." required>
         <!-- email field -->
-        <br>
+       
         
-        <label for="artwork">Artwork:</label><br>
+        <label for="artwork">Artwork:</label>
         
-        <input type="checkbox" id="inquiries" name="inquiries" value="Inquiry Piece(s)">
-        <label for="inquiries">Inquiry Piece(s)</label>
+        <label for="inquiry">Inquiry Piece(s)</label>
+        <input type="checkbox" id="inquiry-checkbox" name="inquiry" value="Inquiry Piece(s)">
+        
         <!-- inquiries checkbox -->
 
-        <input type="checkbox" id="commission" name="commission" value="Commission Piece(s)">
+        <div id="inquiry-select" class="hidden">
+            <label for="art-pieces">Select Art Piece(s):</label>
+            <select id="art-pieces" name="art-pieces">
+                <option value="selectionBelow">Selection Below</option>
+                <option value="piece1" data-image="path/to/image1.jpg">Art Piece 1</option>
+                <option value="piece2" data-image="path/to/image2.jpg">Art Piece 2</option>
+                <option value="piece3" data-image="path/to/image3.jpg">Art Piece 3</option>
+                <option value="piece4" data-image="path/to/image4.jpg">Art Piece 4</option>
+                <option value="piece5" data-image="path/to/image5.jpg">Art Piece 5</option>
+            </select>
+            <div id="selected-pieces"></div>
+        </div>
+        <!-- upon click of inquiries checkbox, this dropbox will appear with available art piece selections-->
+
+
         <label for="commission">Commission Piece(s)</label>
+        <input type="checkbox" id="commission-checkbox" name="commission" value="Commission Piece(s)">
+        
         <!-- commissions checkbox -->
 
+        <div id="commission-comments" class="hidden">
+            <label for="comments">Comments:</label>
+            <textarea id="comments" name="comments"></textarea>
+        </div>
+        
+        <!-- upon click of commission checkbox, this section will appear for commission piece requests-->
         <br><br>
 
-        <div id="dropdownInquires" class="hidden">
-            <!-- upon click of inquiries checkbox, this dropbox will appear with available art piece selections-->
-        </div>
-
-        <div id="commission" class="hidden">
-            <!-- upon click of commission checkbox, this section will appear for commission piece requests-->
-        </div>
-
-        <input type="submit">
+        <button type="submit">Submit</button>
         <!-- remember to prevent refresh upon click maybe have close upon click of submission -->
     </form>
+
+    <script src="main.js"></script>
+
 </body>
 </html>
