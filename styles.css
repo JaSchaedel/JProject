@@ -17,6 +17,10 @@ body {
     margin-bottom: 8px;
   }
   
+  h1 {
+    text-align: center;
+  }
+
   input[type="text"],
   input[type="email"],
   textarea,
